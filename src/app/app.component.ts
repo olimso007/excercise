@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Post } from "./post.inteface";
+import { ApiService } from "./api.service";
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,17 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'excercise';
+  posts: Post[] = [];
+
+  constructor(
+    private apiService: ApiService,
+  ) {
+  }
+
+  loadPosts() {
+    this.apiService.getPosts().subscribe((responce)=>this.posts=responce);
+  };
+
+  ngOnInit(): void {
+  }
 }

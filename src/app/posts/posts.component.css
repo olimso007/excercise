@@ -1,0 +1,43 @@
+h3, td, form {
+  text-align: center
+}
+
+div #postForm{
+  text-align: right;
+  border: 3px solid #fff;
+}
+
+div .label{
+  text-align: right;
+  margin-right: 43%;
+}
+
+label {
+  padding: 0 12px 12px 12px;
+  display: inline-block;
+}
+
+input {
+  background-color: gainsboro;
+  border-radius: 5px;
+  font-family: "Times New Roman"
+}
+
+button {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 15px;
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: 2px solid white;
+  background: linear-gradient(#F3AE0F, #E38916) #E38916;
+}
+
+table, th, td, tr {
+  border: 1px solid black;
+}
+div #allPostTable {
+  position:relative;
+}
+

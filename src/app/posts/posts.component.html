@@ -1,0 +1,60 @@
+<div id="postForm">
+  <h3>Create new post</h3>
+  <form [formGroup]="newPostForm" (ngSubmit)="onSubmit()">
+    <div class="label">
+      <label>
+        Id
+      </label>
+      <input id="id" type="number">
+    </div>
+
+    <div class="label">
+      <label>
+        User_Id
+      </label>
+      <input id="user_id" type="number">
+    </div>
+
+    <div class="label">
+      <label>
+        Title
+      </label>
+      <input id="title" type="text">
+    </div>
+    <div class="label">
+      <label>
+        Body
+      </label>
+      <input id="body" type="text">
+    </div>
+
+    <button class="button" type="submit">Submit</button>
+  </form>
+</div>
+
+<h3>All posts</h3>
+
+<div id="allPostTable">
+  <div id="tableScroll">
+    <table>
+      <thead>
+        <tr>
+        <th>Id</th>
+        <th>User id</th>
+        <th>Title</th>
+        <th>Body</th>
+      </tr>
+      </thead>
+      <tbody>
+        <tr  *ngFor="let item of postsFromServer">
+          <td>{{ item.id }}</td>
+          <td>{{ item.user_id }}</td>
+          <td>{{ item.title }}</td>
+          <td>{{ item.body }}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
