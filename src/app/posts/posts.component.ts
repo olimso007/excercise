@@ -1,8 +1,7 @@
-import {Component, Input, OnInit} from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ApiService } from '../api.service'
 import { FormBuilder } from '@angular/forms';
 import { Post } from '../post.inteface'
-import {Observable} from "rxjs";
 
 
 @Component({
@@ -11,10 +10,10 @@ import {Observable} from "rxjs";
   styleUrls: ['./posts.component.css']
 })
 export class PostsComponent implements OnInit {
-  @Input() postsFromServer: Post[] = [];
+  @Input() posts: Post[] = [];
   newPostForm = this.formBuilder.group({
-    id: '', /**Validations**/
-    user_id: '',
+    id: '',
+    userId: '',
     title: '',
     body: ''
   });

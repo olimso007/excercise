@@ -34,27 +34,11 @@
 
 <h3>All posts</h3>
 
-<div id="allPostTable">
-  <div id="tableScroll">
-    <table>
-      <thead>
-        <tr>
-        <th>Id</th>
-        <th>User id</th>
-        <th>Title</th>
-        <th>Body</th>
-      </tr>
-      </thead>
-      <tbody>
-        <tr  *ngFor="let item of postsFromServer">
-          <td>{{ item.id }}</td>
-          <td>{{ item.user_id }}</td>
-          <td>{{ item.title }}</td>
-          <td>{{ item.body }}</td>
-      </tr>
-      </tbody>
-    </table>
-  </div>
+<div id="posts" *ngFor="let item of posts">
+  <h5>User ID {{ item.user_id }}:</h5>
+  <i class="title">"{{item.title}}"</i><br>
+  <a class="body">{{item.body}}</a>
 </div>
+
 
 

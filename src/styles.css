@@ -1,1 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+  background-color: lightgoldenrodyellow;
+  height: 100%;
+
+}
+
+button {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: 2px solid white;
+  background: linear-gradient(#F3AE0F, #E38916) #E38916;
+}

@@ -6,14 +6,16 @@ import { AppComponent } from './app.component';
 import { PostsComponent } from './posts/posts.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from "@angular/forms";
-import { RouterModule } from "@angular/router";
+import { RouterModule } from '@angular/router';
 import { FilterComponent } from './filter/filter.component';
+import { PaginationComponent } from './pagination/pagination.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PostsComponent,
-    FilterComponent
+    FilterComponent,
+    PaginationComponent
   ],
   imports: [
     BrowserModule,

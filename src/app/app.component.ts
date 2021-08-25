@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Post } from "./post.inteface";
-import { ApiService } from "./api.service";
+import { Post, Pagination, Posts } from './post.inteface';
+import { ApiService } from './api.service';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +9,10 @@ import { ApiService } from "./api.service";
 })
 export class AppComponent {
   title = 'excercise';
-  posts: Post[] = [];
+  posts: Posts | null = null;
+  postsFromServer: Post[] = [];
+  paginationInfo: Pagination | null = null;
+
 
   constructor(
     private apiService: ApiService,
@@ -17,8 +20,21 @@ export class AppComponent {
   }
 
   loadPosts() {
-    this.apiService.getPosts().subscribe((responce)=>this.posts=responce);
+    this.apiService.getPosts("1").subscribe((response)=>this.posts=response);
+    if (this.posts != null){
+      this.postsFromServer = this.posts.data;
+      this.paginationInfo = this.posts.meta.pagination;
+    }
+
   };
+
+  loadPage(pageUrl: string) {
+    this.apiService.getPage(pageUrl).subscribe((response)=>this.posts=response)
+    if (this.posts != null){
+      this.postsFromServer = this.posts.data;
+      this.paginationInfo = this.posts.meta.pagination;
+    }
+  }
 
   ngOnInit(): void {
   }
