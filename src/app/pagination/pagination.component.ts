@@ -15,6 +15,10 @@ export class PaginationComponent implements OnInit {
 
   loadFirstPage() {
     if (this.paginationInfo != null) {
+      // var btn = document.getElementById("first")
+      // if (this.pageNum == 1) {
+      //   btn?.setAttribute('disabled', 'disabled');
+      // }
       let link: string = this.paginationInfo.links.current;
       this.pageNum = 1;
       this.page.emit(link.slice(0, link.lastIndexOf('=')) + '1');
