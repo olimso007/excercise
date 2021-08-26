@@ -1,16 +1,16 @@
 <a *ngIf="this.paginationInfo">{{this.paginationInfo | json}}</a><br>
 
-<div *ngIf="paginationInfo != null">
-  <button id ="first" (click)="loadFirstPage()" *ngIf="pageNum != 1" [title]='"First page"' [disabled]="">
+<div>
+  <button id ="first" (click)="loadFirstPage()" [title]='"First page"' [disabled]="'disabled'">
     <i class="fa fa-step-backward" aria-hidden="true"></i>
   </button>
-  <button (click)="loadPreviousPage()" *ngIf="pageNum != 1" [title]='"Previous page"'>
-    <i id="previous" class="fa fa-caret-left" aria-hidden="true"></i>
+  <button id="previous" (click)="loadPreviousPage()" [title]='"Previous page"' [disabled]="'disabled'">
+    <i class="fa fa-caret-left" aria-hidden="true"></i>
   </button>
-  <button (click)="loadNextPage()" *ngIf="pageNum != paginationInfo.pages" [title]='"Next page"'>
-    <i id="next" class="fa fa-caret-right" aria-hidden="true"></i>
+  <button id="next" (click)="loadNextPage()" [title]='"Next page"' [disabled]="'disabled'">
+    <i class="fa fa-caret-right" aria-hidden="true"></i>
   </button>
-  <button (click)="loadLastPage()" *ngIf="pageNum != paginationInfo.pages" [title]='"Last page"'>
-    <i id="last" class="fa fa-step-forward" aria-hidden="true"></i>
+  <button id="last" (click)="loadLastPage()" [title]='"Last page"' [disabled]="'disabled'">
+    <i class="fa fa-step-forward" aria-hidden="true"></i>
   </button>
 </div>

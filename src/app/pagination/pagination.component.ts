@@ -9,45 +9,52 @@ import { Pagination } from '../post.inteface';
 export class PaginationComponent implements OnInit, OnChanges {
   @Input() paginationInfo: Pagination | null = null;
   @Output() page = new EventEmitter<number>();
-  pageNum: number = 1;
 
   constructor() { }
 
   loadFirstPage() {
-    if (this.paginationInfo != null) {
-      // var btn = document.getElementById("first")
-      // if (this.pageNum == 1) {
-      //   btn?.setAttribute('disabled', 'disabled');
-      // }
-      let link: string = this.paginationInfo.links.current;
-      this.pageNum = 1;
+    if (this.paginationInfo != null && this.paginationInfo.page != 1) {
       this.page.emit(1);
     }
   }
 
   loadPreviousPage() {
-    if (this.paginationInfo != null) {
-      this.pageNum -= 1;
-      this.page.emit(this.pageNum);
+    if (this.paginationInfo != null && this.paginationInfo.page != 1) {
+      this.page.emit(this.paginationInfo.page - 1);
     }
   }
 
   loadNextPage() {
-    if (this.paginationInfo != null) {
-      this.pageNum += 1;
-      this.page.emit(this.pageNum);
+    if (this.paginationInfo != null && this.paginationInfo.page != this.paginationInfo.pages) {
+      this.page.emit(this.paginationInfo.page + 1);
     }
   }
 
   loadLastPage() {
-    if (this.paginationInfo != null) {
-      this.pageNum = this.paginationInfo.pages;
-      let link: string = this.paginationInfo.links.current;
-      this.page.emit(this.pageNum);
+    if (this.paginationInfo != null  && this.paginationInfo.page != this.paginationInfo.pages) {
+      this.page.emit(this.paginationInfo.pages);
     }
   }
 
   ngOnChanges() {
+    var first = document.getElementById("first")
+    var previous = document.getElementById("previous")
+    var next = document.getElementById("next")
+    var last = document.getElementById("last")
+    if (this.paginationInfo?.page == 1) {
+      first?.setAttribute('disabled', 'disabled');
+      previous?.setAttribute('disabled', 'disabled');
+    } else {
+      first?.removeAttribute('disabled');
+      previous?.removeAttribute('disabled');
+    }
+    if (this.paginationInfo?.page == this.paginationInfo?.pages) {
+      next?.setAttribute('disabled', 'disabled');
+      last?.setAttribute('disabled', 'disabled');
+    } else {
+      next?.removeAttribute('disabled');
+      last?.removeAttribute('disabled');
+    }
 
   }
 
