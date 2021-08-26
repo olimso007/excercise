@@ -10,7 +10,7 @@ export class ApiService {
 
   constructor(private http: HttpClient) { }
 
-  getPosts(page: string): Observable<Posts> {
+  getPosts(page: number): Observable<Posts> {
     return this.http.get<Posts>("https://gorest.co.in/public/v1/posts?page=" + page);
   }
 

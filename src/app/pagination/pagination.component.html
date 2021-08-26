@@ -1,12 +1,7 @@
-<link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet">
-
-<a *ngIf="this.paginationInfo">{{this.paginationInfo?.links?.current}}</a><br>
-<a *ngIf="this.paginationInfo">{{this.paginationInfo?.links?.previous}}</a><br>
-<a *ngIf="this.paginationInfo">{{this.paginationInfo?.links?.next}}</a><br>
-<a *ngIf="this.paginationInfo">{{this.paginationInfo?.pages}}</a><br>
+<a *ngIf="this.paginationInfo">{{this.paginationInfo | json}}</a><br>
 
 <div *ngIf="paginationInfo != null">
-  <button id ="first" (click)="loadFirstPage()" *ngIf="pageNum != 1" [title]='"First page"'>
+  <button id ="first" (click)="loadFirstPage()" *ngIf="pageNum != 1" [title]='"First page"' [disabled]="">
     <i class="fa fa-step-backward" aria-hidden="true"></i>
   </button>
   <button (click)="loadPreviousPage()" *ngIf="pageNum != 1" [title]='"Previous page"'>

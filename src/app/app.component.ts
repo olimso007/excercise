@@ -19,13 +19,14 @@ export class AppComponent {
   ) {
   }
 
-  loadPage(pageUrl: string) {
-    this.apiService.getPage(pageUrl).subscribe((response)=>this.posts=response)
+  loadPosts(page: number = 1) {
+    this.apiService.getPosts(page).subscribe((response)=>this.posts=response);
     if (this.posts != null){
       this.postsFromServer = this.posts.data;
       this.paginationInfo = this.posts.meta.pagination;
     }
-  }
+
+  };
 
   ngOnInit(): void {
   }
