@@ -34,11 +34,14 @@
 
 <h3>All posts</h3>
 
-<div id="posts" *ngFor="let item of posts">
-  <h5>User ID {{ item.user_id }}:</h5>
-  <i class="title">"{{item.title}}"</i><br>
-  <a class="body">{{item.body}}</a>
+<div id="posts">
+  <div *ngFor="let item of posts">
+    <h5>User ID {{ item.user_id }}:</h5>
+    <i class="title">"{{item.title}}"</i><br>
+    <a class="body">{{item.body}}</a>
+  </div>
 </div>
+
 
 
 

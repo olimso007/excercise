@@ -1,12 +1,18 @@
 h3, form {
-  text-align: center
+  text-align: center;
+  color: white;
+  background: none;
 }
 
-div#postForm{
+#postForm {
   text-align: right;
 }
 
-.label{
+#posts {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.label {
   text-align: right;
   margin-right: 43%;
 }
