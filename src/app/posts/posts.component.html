@@ -2,33 +2,19 @@
   <h3>Create new post</h3>
   <form [formGroup]="newPostForm" (ngSubmit)="onSubmit()">
     <div class="label">
-      <label>
-        Id
-      </label>
-      <input id="id" type="number">
-    </div>
-
-    <div class="label">
-      <label>
-        User_Id
-      </label>
-      <input id="user_id" type="number">
-    </div>
-
-    <div class="label">
-      <label>
+      <h4>
         Title
-      </label>
-      <input id="title" type="text">
+      </h4>
+      <textarea id="title" class="scrollabletextbox" type="text" formControlName="title"></textarea>
     </div>
     <div class="label">
-      <label>
+      <h4>
         Body
-      </label>
-      <input id="body" type="text">
+      </h4>
+      <textarea id="body" class="scrollabletextbox" type="text" formControlName="body"></textarea>
     </div>
 
-    <button class="button" type="submit">Submit</button>
+    <button class="button" type="submit"  [disabled]="!newPostForm.valid">Submit</button>
   </form>
 </div>
 
@@ -36,7 +22,7 @@
 
 <div id="posts">
   <div *ngFor="let item of posts">
-    <h5>User ID {{ item.user_id }}:</h5>
+    <h5>User name {{ idNameMap.get(item.user_id) }}:</h5>
     <i class="title">"{{item.title}}"</i><br>
     <a class="body">{{item.body}}</a>
   </div>

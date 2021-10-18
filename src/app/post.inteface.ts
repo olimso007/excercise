@@ -23,3 +23,23 @@ export interface Posts {
   },
   data: Post[]
 }
+
+export interface UserInfo {
+  id: number,
+  name: string,
+  email: string,
+  gender: string,
+  status: string
+}
+
+export interface User {
+  meta: null,
+  data: UserInfo
+}
+
+export interface Users {
+  meta: {
+    pagination: Pagination
+  },
+  data: UserInfo[]
+}

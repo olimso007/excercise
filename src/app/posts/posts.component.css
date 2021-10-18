@@ -1,7 +1,17 @@
-h3, form {
+h3, h4, form {
   text-align: center;
   color: white;
   background: none;
+}
+
+#title {
+  height: 2rem;
+  width: 20rem;
+}
+
+#body {
+  height: 3rem;
+  width: 20rem;
 }
 
 #postForm {
@@ -12,21 +22,13 @@ h3, form {
   background: rgba(255, 255, 255, 0.4);
 }
 
-.label {
-  text-align: right;
-  margin-right: 43%;
-}
-
-input {
+textarea {
   background-color: gainsboro;
   border-radius: 5px;
   font-family: "Times New Roman", serif;
+  resize: none;
 }
 
-label {
-  padding: 0 12px 12px 12px;
-  display: inline-block;
-}
 
 button {
   font-size: 15px;

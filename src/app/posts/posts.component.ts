@@ -1,6 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import { ApiService } from '../api.service'
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { Post } from '../post.inteface'
 
 
@@ -11,11 +11,13 @@ import { Post } from '../post.inteface'
 })
 export class PostsComponent implements OnInit {
   @Input() posts: Post[] = [];
+  @Input() idNameMap: Map<number, string> = new Map<number, string>();
+  @Output() reloadPage = new EventEmitter<null>();
   newPostForm = this.formBuilder.group({
-    id: '',
-    userId: '',
-    title: '',
-    body: ''
+    id: [''],
+    userId: [''],
+    title: ['', [Validators.required]],
+    body: ['', [Validators.required]]
   });
 
   constructor(
@@ -24,10 +26,18 @@ export class PostsComponent implements OnInit {
   ) {}
 
   onSubmit(): void {
-    /**add newPost to postsFromServer**/
-    /**this.newPostForm.getRawValue()**/
-    console.warn('Your your data posted', this.newPostForm.value);
+    const newPost: Post = {
+      id: 171,
+      user_id: 171,
+      title: this.newPostForm.get('title')?.value,
+      body: this.newPostForm.get('body')?.value,
+    };
+    this.apiService.createNewPost(newPost, newPost.id).subscribe();
+    window.alert('Your data posted successfully');
     this.newPostForm.reset();
+    if (this.posts.length != 0) {
+      this.reloadPage.emit(null);
+    }
   }
 
   ngOnInit(): void {

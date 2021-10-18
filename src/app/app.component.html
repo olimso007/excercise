@@ -1,3 +1,3 @@
 <app-filter (load)="loadPosts()"></app-filter>
-<app-posts [posts]="postsFromServer"></app-posts>
+<app-posts [posts]="postsFromServer" [idNameMap]="idNameMap" (reloadPage)="loadPosts()"></app-posts>
 <app-pagination [paginationInfo]="paginationInfo" (page)="loadPosts($event)"></app-pagination>
