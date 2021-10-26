@@ -1,14 +1,14 @@
 <div>
-  <button id ="first" (click)="loadFirstPage()" [title]='"First page"' [disabled]="'disabled'">
+  <button id ="first" (click)='loadFirstPage()' title='First page' [disabled]='isFirstDisable'>
     <i class="fa fa-step-backward" aria-hidden="true"></i>
   </button>
-  <button id="previous" (click)="loadPreviousPage()" [title]='"Previous page"' [disabled]="'disabled'">
+  <button id="previous" (click)="loadPreviousPage()" title='Previous page' [disabled]='isPreviousDisable'>
     <i class="fa fa-caret-left" aria-hidden="true"></i>
   </button>
-  <button id="next" (click)="loadNextPage()" [title]='"Next page"' [disabled]="'disabled'">
+  <button id="next" (click)="loadNextPage()" title='Next page' [disabled]='isNextDisable'>
     <i class="fa fa-caret-right" aria-hidden="true"></i>
   </button>
-  <button id="last" (click)="loadLastPage()" [title]='"Last page"' [disabled]="'disabled'">
+  <button id="last" (click)="loadLastPage()" title='Last page' [disabled]='isLastDisable'>
     <i class="fa fa-step-forward" aria-hidden="true"></i>
   </button>
 </div>

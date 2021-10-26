@@ -1,6 +1,6 @@
 <div id="postForm">
   <h3>Create new post</h3>
-  <form [formGroup]="newPostForm" (ngSubmit)="onSubmit()">
+  <form [formGroup]='newPostForm' (ngSubmit)='onSubmit()'>
     <div class="label">
       <h4>
         Title
@@ -14,14 +14,14 @@
       <textarea id="body" class="scrollabletextbox" type="text" formControlName="body"></textarea>
     </div>
 
-    <button class="button" type="submit"  [disabled]="!newPostForm.valid">Submit</button>
+    <button class="button" type="submit"  [disabled]='!newPostForm.valid'>Submit</button>
   </form>
 </div>
 
 <h3>All posts</h3>
 
 <div id="posts">
-  <div *ngFor="let item of posts">
+  <div *ngFor='let item of posts'>
     <h5>User name {{ idNameMap.get(item.user_id) }}:</h5>
     <i class="title">"{{item.title}}"</i><br>
     <a class="body">{{item.body}}</a>

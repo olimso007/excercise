@@ -4,11 +4,15 @@ import { Pagination } from '../post.inteface';
 @Component({
   selector: 'app-pagination',
   templateUrl: './pagination.component.html',
-  styleUrls: ['./pagination.component.css']
+  styleUrls: ['./pagination.component.scss']
 })
 export class PaginationComponent implements OnInit, OnChanges {
   @Input() paginationInfo: Pagination | null = null;
   @Output() page = new EventEmitter<number>();
+  isFirstDisable: boolean = true;
+  isLastDisable: boolean = false;
+  isPreviousDisable: boolean = false;
+  isNextDisable: boolean = false;
 
   constructor() { }
 
@@ -37,23 +41,19 @@ export class PaginationComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges() {
-    var first = document.getElementById("first")
-    var previous = document.getElementById("previous")
-    var next = document.getElementById("next")
-    var last = document.getElementById("last")
-    if (this.paginationInfo?.page == 1) {
-      first?.setAttribute('disabled', 'disabled');
-      previous?.setAttribute('disabled', 'disabled');
+    if (this.paginationInfo?.page === 1 || this.paginationInfo === null) {
+      this.isFirstDisable = true;
+      this.isPreviousDisable = true;
     } else {
-      first?.removeAttribute('disabled');
-      previous?.removeAttribute('disabled');
+      this.isFirstDisable = false;
+      this.isPreviousDisable = false;
     }
-    if (this.paginationInfo?.page == this.paginationInfo?.pages) {
-      next?.setAttribute('disabled', 'disabled');
-      last?.setAttribute('disabled', 'disabled');
+    if (this.paginationInfo?.page === this.paginationInfo?.pages || this.paginationInfo === null) {
+      this.isLastDisable = true;
+      this.isNextDisable = true;
     } else {
-      next?.removeAttribute('disabled');
-      last?.removeAttribute('disabled');
+      this.isLastDisable = false;
+      this.isNextDisable = false;
     }
 
   }

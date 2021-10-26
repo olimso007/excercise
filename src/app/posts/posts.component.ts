@@ -7,7 +7,7 @@ import { Post } from '../post.inteface'
 @Component({
   selector: 'app-posts',
   templateUrl: './posts.component.html',
-  styleUrls: ['./posts.component.css']
+  styleUrls: ['./posts.component.scss']
 })
 export class PostsComponent implements OnInit {
   @Input() posts: Post[] = [];
@@ -35,7 +35,7 @@ export class PostsComponent implements OnInit {
     this.apiService.createNewPost(newPost, newPost.id).subscribe();
     window.alert('Your data posted successfully');
     this.newPostForm.reset();
-    if (this.posts.length != 0) {
+    if (this.posts.length !== 0) {
       this.reloadPage.emit(null);
     }
   }

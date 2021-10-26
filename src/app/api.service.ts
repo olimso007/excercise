@@ -12,8 +12,7 @@ export class ApiService {
 
 
   createNewPost(post: Post, id: number): Observable<Post> {
-    return this.http.post<Post>('https://gorest.co.in/public/v1/users/'+ id +'/posts',
-      post);
+    return this.http.post<Post>('https://gorest.co.in/public/v1/users/'+ id +'/posts', post);
   }
 
   getUser(id: number): Observable<User>{
