@@ -1,0 +1,3 @@
+<app-filter (load)="loadUsers()"></app-filter>
+<app-users [users]="usersFromServer"></app-users>
+<app-pagination [paginationInfo]="paginationInfo" (page)="loadUsers($event)"></app-pagination>

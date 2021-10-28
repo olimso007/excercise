@@ -1,0 +1,27 @@
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { PostsComponent } from "./posts/posts.component";
+import { SharedComponent } from "../shared/shared.component";
+import {SharedModule} from "../shared/shared.module";
+import {PostPageComponent} from "./post-page.component";
+import {BrowserModule} from "@angular/platform-browser";
+import {HttpClientModule} from "@angular/common/http";
+import {ReactiveFormsModule} from "@angular/forms";
+
+
+
+@NgModule({
+  declarations: [
+    PostsComponent,
+    PostPageComponent,
+  ],
+  imports: [
+    SharedModule,
+    ReactiveFormsModule
+  ],
+  exports: [
+    PostsComponent,
+    SharedModule,
+  ]
+})
+export class PostPageModule { }

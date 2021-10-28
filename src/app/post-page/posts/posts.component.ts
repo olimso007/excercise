@@ -1,7 +1,7 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ApiService } from '../api.service'
 import { FormBuilder, Validators } from '@angular/forms';
-import { Post } from '../post.inteface'
+import { Post } from '../../post.inteface'
 
 
 @Component({

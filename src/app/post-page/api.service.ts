@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Post, Posts, User, Users } from './post.inteface';
+import { Post, Posts, User } from '../post.inteface';
 import { Observable } from 'rxjs';
 
 @Injectable({

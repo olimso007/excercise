@@ -1,3 +1,5 @@
-<app-filter (load)="loadPosts()"></app-filter>
-<app-posts [posts]="postsFromServer" [idNameMap]="idNameMap" (reloadPage)="loadPosts()"></app-posts>
-<app-pagination [paginationInfo]="paginationInfo" (page)="loadPosts($event)"></app-pagination>
+<div>
+  <button routerLink="/posts" routerLinkActive="active">Posts</button>
+  <button routerLink="/users" routerLinkActive="active">Users</button>
+</div>
+<router-outlet></router-outlet>
