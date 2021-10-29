@@ -12,11 +12,11 @@ export class ApiService {
 
 
   createNewUser(user: UserInfo): Observable<UserInfo> {
-    return this.http.post<UserInfo>('https://gorest.co.in/public/v1/users', user);
+    return this.http.post<UserInfo>(`https://gorest.co.in/public/v1/users`, user);
   }
 
   getUsers(page: number): Observable<Users> {
-    return this.http.get<Users>('https://gorest.co.in/public/v1/users?page=' + page);
+    return this.http.get<Users>(`https://gorest.co.in/public/v1/users?page=${page}`);
   }
 
 }

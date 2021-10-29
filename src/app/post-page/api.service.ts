@@ -12,15 +12,15 @@ export class ApiService {
 
 
   createNewPost(post: Post, id: number): Observable<Post> {
-    return this.http.post<Post>('https://gorest.co.in/public/v1/users/'+ id +'/posts', post);
+    return this.http.post<Post>(`https://gorest.co.in/public/v1/users/${id}/posts`, post);
   }
 
   getUser(id: number): Observable<User>{
-    return this.http.get<User>('https://gorest.co.in/public/v1/users/' + id);
+    return this.http.get<User>(`https://gorest.co.in/public/v1/users/${id}`);
   }
 
   getPosts(page: number): Observable<Posts> {
-    return this.http.get<Posts>("https://gorest.co.in/public/v1/posts?page=" + page);
+    return this.http.get<Posts>(`https://gorest.co.in/public/v1/posts?page=${page}`);
   }
 
 }
