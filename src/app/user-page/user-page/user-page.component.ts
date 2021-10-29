@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Pagination, UserInfo } from '../post.inteface';
-import { ApiService } from './api.service';
+import { Pagination, UserInfo } from '../../post.inteface';
+import { ApiService } from '../api.service';
 
 @Component({
   selector: 'app-user-page',

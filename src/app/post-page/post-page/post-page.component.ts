@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Pagination, Post } from '../post.inteface';
-import { ApiService } from './api.service';
+import { Pagination, Post } from '../../post.inteface';
+import { ApiService } from '../api.service';
 
 
 @Component({
@@ -21,7 +21,7 @@ export class PostPageComponent implements OnInit {
   loadPosts(page: number = 1) {
     this.apiService.getPosts(page).subscribe((response) => {
       response.data.forEach((post: Post) => {
-        if (this.idNameMap.get(post.user_id) == undefined) {
+        if (this.idNameMap.get(post.user_id) === undefined) {
           this.apiService.getUser(post.user_id).subscribe((response) => {
             this.idNameMap.set(post.user_id, response.data.name);
           });

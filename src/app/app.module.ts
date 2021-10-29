@@ -5,12 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
-import { MyInterceptor } from './my.interceptor';
+import { AuthorizationInterceptor } from './authorization.interceptor';
 import { PostPageModule } from './post-page/post-page.module';
+import { SmtfComponent } from './smtf/smtf.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    SmtfComponent,
   ],
   imports: [
     BrowserModule,
@@ -20,7 +22,7 @@ import { PostPageModule } from './post-page/post-page.module';
     PostPageModule,
   ],
   providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: MyInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: AuthorizationInterceptor, multi: true },
   ],
   bootstrap: [AppComponent]
 })

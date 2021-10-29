@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { PostPageComponent } from './post-page/post-page.component';
-import { UserPageComponent } from './user-page/user-page.component';
+import { PostPageComponent } from './post-page/post-page/post-page.component';
+import { UserPageComponent } from './user-page/user-page/user-page.component';
 
 const routes: Routes = [
   { path: 'posts', component: PostPageComponent},
   { path: 'users', component: UserPageComponent,
     loadChildren: () => import('./user-page/user-page.module').then(m => m.UserPageModule)},
-  { path: '**', component: PostPageComponent},
+  { path: '**', redirectTo: 'posts'},
 ];
 
 @NgModule({
